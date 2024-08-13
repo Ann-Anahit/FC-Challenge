@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import StatefulGreeting from './components/StatefulGreeting';
+
+import css from "./App.module.css";
+import NavBarSimple from "./components/NavBarSimple";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
-    <div className="App">
-      <StatefulGreeting greeting="I'm a stateful class component!" name="Mike" />
+    <div className={css.App}>
+      {/* Add your components here */}
+      <NavBarSimple />
+      <Sidebar />
     </div>
   );
 }
 
-export default App; 
+export default App;
