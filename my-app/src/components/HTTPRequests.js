@@ -4,29 +4,28 @@ import axios from 'axios';
 export class HTTPRequests extends Component {
     constructor(props) {
         super(props)
-
+    
         this.state = {
-            posts: [],
-            error: null,
+             posts: [],
+             error: null
         }
     }
-
-    componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                console.log(response);
-                this.setState({
-                    posts: Array.isArray(response.data)
-                        ? response.data
-                        : [response.data]
-                })
-            }).catch(error => {
-                this.setState({
-                    error: error.message
-                })
+    componentDidMount(){
+        axios.get('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => {
+            console.log(response);
+            this.setState({
+                posts: Array.isArray(response.data)
+                ? response.data
+                : [response.data]
             })
+        })
+        .catch(error => {
+            this.setState({
+                error: error.message
+            })
+        })
     }
-
     render() {
         const posts = this.state.posts;
         return (
@@ -44,8 +43,8 @@ export class HTTPRequests extends Component {
                         ))
                     ) : (
                         this.state.error
-                            ? <p>{this.state.error}</p>
-                            : <h4>Loading posts ...</h4>
+                        ? <p>{this.state.error}</p>
+                        : <h4>Loading posts ...</h4>
                     )
                 }
             </div>
