@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 function UseStateWithArrays() {
-    const [nums, setNums] = useState([1,2,3]);
+    const [nums, setNums] = useState([1, 2, 3]);
     const addNums = () => {
         setNums([...nums, nums.length + 1]);
     }
